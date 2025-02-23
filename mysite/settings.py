@@ -133,7 +133,8 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-# Celery settings
-CELERY_BROKER_URL = 'memory://'
+# # Celery settings
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
+CELERY_BROKER_URL = 'redis://localhost:6379/0'  # Redis URL for task queue
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'  # Redis URL for task results
